@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/root/nullengine/build",
+  "command": "/usr/sbin/g++  -I/root/nullengine/src/include -g -std=gnu++17 -o CMakeFiles/null_engine.dir/src/main.cpp.o -c /root/nullengine/src/main.cpp",
+  "file": "/root/nullengine/src/main.cpp",
+  "output": "CMakeFiles/null_engine.dir/src/main.cpp.o"
+},
+{
+  "directory": "/root/nullengine/build",
+  "command": "/usr/sbin/g++  -I/root/nullengine/src/include -g -std=gnu++17 -o CMakeFiles/null_engine.dir/src/vector/vec2.cpp.o -c /root/nullengine/src/vector/vec2.cpp",
+  "file": "/root/nullengine/src/vector/vec2.cpp",
+  "output": "CMakeFiles/null_engine.dir/src/vector/vec2.cpp.o"
+}
+]

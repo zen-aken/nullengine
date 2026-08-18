@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/root/nullengine/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

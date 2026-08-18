@@ -1,0 +1,1 @@
+/usr/sbin/g++ -g -Wl,--dependency-file=CMakeFiles/null_engine.dir/link.d CMakeFiles/null_engine.dir/src/main.cpp.o CMakeFiles/null_engine.dir/src/vector/vec2.cpp.o -o null_engine

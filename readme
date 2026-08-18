@@ -1,0 +1,328 @@
+2D Physics Engine — Learning + Coding Roadmap
+
+Aşama 0 — Programlama temeli
+Önce şunları rahat kullan:
+
+C++ temel syntax
+struct/class
+pointer/reference
+array/vector
+constructor
+operator overloading
+dosyalara bölme (.h/.cpp)
+CMake
+debugger
+
+Kodlama hedefi: Basit bir 2D program açıp ekranda hareket eden bir kare.
+
+Aşama 1 — Matematik
+
+Öğren:
+
+koordinat sistemi
+x, y
+vektör nedir?
+toplama/çıkarma
+çarpma/bölme
+uzunluk
+normalize
+dot product
+
+Kodla:
+
+Vec2
+ ├── x
+ ├── y
+ ├── +
+ ├── -
+ ├── *
+ ├── /
+ ├── length()
+ ├── normalize()
+ └── dot()
+
+Hedef: Ekranda bir objeyi Vec2 kullanarak hareket ettirmek.
+
+Aşama 2 — Zaman ve hareket
+
+Öğren:
+
+zaman
+FPS
+deltaTime
+hız
+ivme
+
+Sonra:
+
+position
+velocity
+acceleration
+
+ilişkisini kodla.
+
+Hedef:
+
+kare
+ ↓
+hızlanıyor
+ ↓
+yavaşlıyor
+ ↓
+duruyor
+
+Aşama 3 — İlk fizik
+
+Öğren:
+
+kuvvet
+kütle
+yerçekimi
+
+Koduna ekle:
+
+Body
+ ├── position
+ ├── velocity
+ ├── mass
+ └── force
+
+Hedef:
+
+   ■
+   |
+   |
+   ↓
+────────────
+
+Kare düşecek.
+
+Aşama 4 — Çarpışma
+
+Önce sadece:
+
+Circle vs Circle
+
+yap.
+
+Öğrenmen gereken:
+
+iki objenin birbirine değip değmediğini bulmak
+çarpışmanın nerede olduğunu bulmak
+hangi yöne itileceğini bulmak
+
+Sonra:
+
+AABB vs AABB
+
+ekle.
+
+Hedef:
+
+   ■
+   ↓
+──────────
+   ↑
+çarpışma
+
+Aşama 5 — Çarpışma sonrası hareket
+
+Şimdi obje zemine çarptığında içinden geçmek yerine geri sekmesini sağla.
+
+Öğren:
+
+momentum
+impulse
+restitution
+
+Hedef:
+
+   ■
+   ↓
+────────
+   ↑
+   ■
+   ↓
+────────
+
+Burada artık gerçekten fizik motoru yazmaya başlamış olacaksın.
+
+Aşama 6 — Birden fazla obje
+
+Artık:
+
+■■■■
+  ■
+ ■
+
+gibi birçok rigid body oluştur.
+
+Motor:
+
+World
+ ├── Body
+ ├── Body
+ ├── Body
+ └── Body
+
+olacak.
+
+Hedef: Objelerin birbirleriyle çarpışması.
+
+Aşama 7 — Dönme
+
+Öğren:
+
+açı
+açısal hız
+torque
+moment of inertia
+
+Artık sadece:
+
+position
+
+değil:
+
+position
+rotation
+
+tutacaksın.
+
+Hedef:
+
+   ╱
+  ╱
+ ╱
+
+şeklindeki kutuların düşüp dönmesi.
+
+Aşama 8 — Sürtünme
+
+Objelerin yüzey üzerinde sonsuza kadar kaymasını engelle.
+
+Örneğin:
+
+      ■ → → →
+──────────────
+
+zamanla:
+
+      ■ →
+──────────────
+
+sonra:
+
+      ■
+──────────────
+
+olacak.
+
+Aşama 9 — Polygonlar
+
+Şimdi circle ve rectangle'dan daha genel şekillere geç.
+
+Öğren:
+
+Convex Polygon
+SAT
+Collision Manifold
+
+Hedef:
+
+   /\
+  /  \
+ /____\
+──────────
+
+üçgenin zemine çarpışması.
+
+Aşama 10 — Constraint'ler
+
+İki objeyi birbirine bağlamayı öğren.
+
+Örneğin:
+
+■──────■
+
+İki kutunun arasındaki mesafeyi sabit tut.
+
+Sonra:
+
+■──────■
+ \    /
+  \  /
+   \/
+
+gibi basit eklem sistemleri.
+
+Aşama 11 — Motor mimarisi
+
+Artık kodu temiz bir engine haline getir:
+
+PhysicsWorld
+ ├── RigidBody
+ ├── Collider
+ ├── CollisionDetector
+ ├── Contact
+ ├── Solver
+ └── BroadPhase
+
+Renderer fizik motorundan bağımsız olsun.
+
+Aşama 12 — Performans
+
+Son olarak:
+
+100 obje
+↓
+1.000 obje
+↓
+10.000 obje
+
+denemeye başla.
+
+Burada:
+
+Broad Phase
+Spatial Grid
+Quadtree
+Sleeping
+
+gibi teknikleri öğrenirsin.
+
+En önemli nokta
+
+Her aşamada önce öğren → hemen küçük bir şey kodla → test et → bir sonraki aşamaya geç.
+
+Yani:
+
+Matematik
+   ↓
+Vec2 yaz
+   ↓
+Hareket eden kare
+   ↓
+Zaman/hız
+   ↓
+Yerçekimi
+   ↓
+Düşen kare
+   ↓
+Çarpışma
+   ↓
+Sekme
+   ↓
+Birden fazla obje
+   ↓
+Dönme
+   ↓
+Sürtünme
+   ↓
+Polygon
+   ↓
+Constraint
+   ↓
+Gerçek Physics Engine
+
+B
